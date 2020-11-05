@@ -3,8 +3,8 @@ Python Discord Bot using Challonge API to manage tournaments
 
 ## Requirements
 The bot is based on the following packages and their dependancies
-* `Discord.py`
-* `pychal`
+* `Discord.py` ([documentation](https://discordpy.readthedocs.io/en/latest/index.html))
+* `pychal` ([documentation](https://github.com/ZEDGR/pychal))
 
 ## Installation
 *to be detailed*
