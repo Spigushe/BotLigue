@@ -5,9 +5,22 @@ Python Discord Bot using Challonge API to manage tournaments
 The bot is based on the following packages and their dependancies
 * `Discord.py` ([documentation](https://discordpy.readthedocs.io/en/latest/index.html))
 * `pychal` ([documentation](https://github.com/ZEDGR/pychal))
+* `dotenv`([documentation](https://pypi.org/project/python-dotenv/))
 
 ## Installation
-*to be detailed*
+You can download this repository and set a `.env` file at the project root. Note
+that `.env` is not uploaded to GitHub as it is ignored via `.gitignore`. The
+information required to be put into the fil is mentioned later.
+
+Then, you have to run the setup script
+```bash
+pip install -e .
+```
+
+And then you can start the bot using the following command
+```bash
+bot
+```
 
 ## Usage
 ### Setting Tokens

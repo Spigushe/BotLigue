@@ -1,6 +1,7 @@
 # Bot Main File
 import os
 import json
+import sqlite3
 
 # Importing .env infos
 from dotenv import load_dotenv
@@ -35,6 +36,10 @@ async def on_message(message):
 	if message.content.lower().startswith("bot "):
 		content = message.content[4:]
 		print(f"Received: {content}")
+		# Initial message handling
+		if content.lower().startswith("register "):
+			print(f"Register")
+
 		if content.lower().startswith("admin "):
 			"""
 			Administrator commands
@@ -73,4 +78,5 @@ async def on_message(message):
 			await message.delete()
 
 # Starting the bot
-client.run(os.getenv("DISCORD_TOKEN"))
+def main():
+	client.run(os.getenv("DISCORD_TOKEN"))
