@@ -128,6 +128,7 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
-# Tournament Folder
-tournaments/*
+# Tournaments Folder
+*/tournaments/*
 .DS_Store
+*.sqlite

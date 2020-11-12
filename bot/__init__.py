@@ -1,7 +1,5 @@
 # Bot Main File
 import os
-import json
-import sqlite3
 
 # Importing .env infos
 from dotenv import load_dotenv
@@ -14,6 +12,17 @@ client = discord.Client()
 # Challonge Library
 import challonge
 challonge.set_credentials(os.getenv("CHALLONGE_NICKNAME"), os.getenv("CHALLONGE_TOKEN"))
+
+# Importing database settings
+import json
+from .database import database
+from .database import structure
+connection = database.create_connection("./bot/database/database.sqlite")
+# Checking tables existence
+if connection is not None:
+	database.create_table(connection, structure.sql_create_tournaments_table)
+else:
+	print("Error! cannot create the database connection")
 
 @client.event
 async def on_ready():
