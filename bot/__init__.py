@@ -80,7 +80,7 @@ async def on_message(message):
 				# Create tournament
 				t_json = challonge.tournaments.create(t_name, t_url, t_type)
 				# Saving tournament json file
-				t_file = "tournaments/"+t_url+".json" # tournaments/ is in .gitignore
+				t_file = "bot/tournaments/"+t_url+".json" # tournaments/ is in .gitignore
 				with open(t_file, "w") as write_file:
 					json.dump(t_json, write_file, indent=4, default=str)
 
