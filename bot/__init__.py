@@ -27,8 +27,11 @@ else:
 @client.event
 async def on_ready():
 	"""
+	Sets activity to playing MtG
 	Login success informative log
 	"""
+	game = discord.Game("Magic: the Gathering")
+	await client.change_presence(status=discord.Status.online, activity=game)
 	print(f"Logged in as {client.user}")
 
 @client.event
