@@ -10,7 +10,7 @@ The bot is based on the following packages and their dependancies
 ## Installation
 You can download this repository and set a `.env` file at the project root. Note
 that `.env` is not uploaded to GitHub as it is ignored via `.gitignore`. The
-information required to be put into the fil is mentioned later.
+information required to be put into the file is mentioned later.
 
 Then, you have to run the setup script
 ```bash
