@@ -41,7 +41,7 @@ def create_tournament(conn, tournament):
     :return: project id
 	"""
 	sql = ''' INSERT INTO tournaments(guild_id,tournament_name,tournament_type,tournament_url,tournament_challonge_id,tournament_creator_id)
-              VALUES(:guild,:name,:type,:url,:challonge_id,:creator_id) '''
+              VALUES(:guild,:name,:type,:url,:id,:creator) '''
 	cur = conn.cursor()
 	cur.execute(sql, tournament)
 	conn.commit()
