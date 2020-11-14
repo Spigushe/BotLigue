@@ -20,11 +20,6 @@ import json
 from .database import database
 from .database import structure
 connection = database.create_connection("./bot/database/database.sqlite")
-# Checking tables existence
-if connection is not None:
-	database.create_table(connection, structure.sql_create_tournaments_table)
-else:
-	print("Error! cannot create the database connection")
 
 @client.event
 async def on_ready():
@@ -35,6 +30,11 @@ async def on_ready():
 	game = discord.Game("Magic: the Gathering")
 	await client.change_presence(status=discord.Status.online, activity=game)
 	print(f"Logged in as {client.user}")
+	# Checking tables existence
+	if connection is not None:
+		database.create_table(connection, structure.sql_create_tournaments_table)
+	else:
+		print("Error! cannot create the database connection")
 
 @client.event
 async def on_message(message):
