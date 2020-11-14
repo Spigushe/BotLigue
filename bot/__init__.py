@@ -8,6 +8,8 @@ load_dotenv()
 # Discord
 import discord
 client = discord.Client()
+## commands
+from .commands import (admin,user)
 
 # Challonge Library
 import challonge
@@ -42,52 +44,22 @@ async def on_message(message):
 	Args:
 	message (object): a discord.Message
 	"""
+	# Checking if the bot is sending a message
 	if message.author == client.user:
 		return
 
+	# Checking if the message is calling the bot
 	if message.content.lower().startswith("bot "):
-		content = message.content[4:]
+		content = message.content[4:] # ^bot $
 		print(f"Received: {content}")
-		# Initial message handling
-		if content.lower().startswith("register "):
-			print(f"Register")
 
+		# Admin Commands
 		if content.lower().startswith("admin "):
-			"""
-			Administrator commands
-			- CREATE 	Create a new tournament
-			- CHECKIN 	Proceed to check-in
-			- START 	Start tournament
-			"""
-		#	if not message.author.has_role("admin"):
-		#		return
+			await admin.admin_message(message,connection)
 
-
-			content = message.content[10:] #bot admin /
-			# Administrator Commands
-			if content.lower().startswith("create "):
-				"""
-				Create a new Challonge tournament
-
-				Args:
-					"Tournament Name"
-					"Tournament Type"
-				"""
-				# Dealing with context
-				content = message.content[17:] #bot admin create /
-				args = content.split(" ") #tournament-name tournament-type
-				# Processing args
-				t_name = " ".join(args[0].split("-"))
-				t_url  = "CL_" + "".join(args[0].split("-"))
-				t_type = " ".join(args[1].split("-")).lower()
-				# Create tournament
-				t_json = challonge.tournaments.create(t_name, t_url, t_type)
-				# Saving tournament json file
-				t_file = "bot/tournaments/"+t_url+".json" # tournaments/ is in .gitignore
-				with open(t_file, "w") as write_file:
-					json.dump(t_json, write_file, indent=4, default=str)
-
-			await message.delete()
+		# User Commands
+		else:
+			user.user_message(message)
 
 # Starting the bot
 def main():
