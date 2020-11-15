@@ -19,6 +19,9 @@ async def list_tournament (message,connection):
 	if "-closed" in message.content or ("-open" and "-closed") not in message.content:
 		embed.add_field(name="Closed tournaments", value=get_list(connection,0,message.guild.id), inline=False)
 
+	embed.set_footer(
+        text=f"List of tournaments for guild **{message.guild}**"
+    )
 	await message.channel.send(embed=embed)
 
 	return
