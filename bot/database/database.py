@@ -40,9 +40,19 @@ def create_tournament(conn, tournament):
     :param project:
     :return: project id
 	"""
-	sql = ''' INSERT INTO tournaments(guild_id,tournament_name,tournament_type,tournament_url,tournament_challonge_id,tournament_creator_id)
-              VALUES(:guild,:name,:type,:url,:id,:creator) '''
+	sql = ''' INSERT INTO tournaments(guild_id,tournament_name,tournament_type,tournament_url,tournament_challonge_id,tournament_creator_id,tournament_status)
+              VALUES(:guild,:name,:type,:url,:id,:creator,:status) '''
 	cur = conn.cursor()
 	cur.execute(sql, tournament)
 	conn.commit()
 	return cur.lastrowid
+
+def execute_request(conn, sql, data=None):
+	cur = conn.cursor()
+
+	if data is not None:
+		cur.execute(sql, data)
+	elif  data is None:
+		cur.execute(sql)
+
+	return cur.fetchall()

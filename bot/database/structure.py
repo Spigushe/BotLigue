@@ -8,6 +8,7 @@ sql_create_tournaments_table = """
 		tournament_url VARCHAR(255),
 		tournament_challonge_id INTEGER,
 		tournament_creator_id BIGINT,
+		tournament_status INT,
 		PRIMARY KEY(id_tournament AUTOINCREMENT)
 	);
 """
@@ -20,4 +21,5 @@ table_tournament_sample = {
 	"url": "er",
 	"id": 123,
 	"creator": 123,
+	"status":1
 }

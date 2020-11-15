@@ -57,6 +57,7 @@ The above commands are also implemented using parameters
 
 ```bash
 bot admin create -name Tournament Name -type Tournament Type
+bot admin list [-open|-closed]
 ```
 
 Note:
