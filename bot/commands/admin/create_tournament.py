@@ -30,7 +30,7 @@ async def create_tournament(message,connection):
 
 	# Confirming tournament creation
 	author = "<@" + str(tournament['creator']) + ">"
-	await message.channel.send(f"{author}, tournament {tournament['name']} is created ")
+	await message.channel.send(f"{author}, tournament `{tournament['name']}` is created ")
 
 	return
 

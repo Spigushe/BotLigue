@@ -26,13 +26,12 @@ async def list_tournament (message,connection):
 
 	return
 
-def get_list(connection,status,guild_id):
-	sql = "SELECT * FROM tournaments WHERE tournament_status = ? AND guild_id = ?"
-
-	tourneys = database.execute_request(connection, sql, (status,guild_id))
+def get_list(connection,status,g_id):
+	sql = "SELECT * FROM tournaments WHERE t_status = ? AND g_id = ?"
+	query = database.execute_request(connection, sql, (status,g_id))
 
 	list = f""
-	for tourney in tourneys:
+	for tourney in query:
 		list = list + "[" + str(tourney[2]) + "](https://challonge.com/" + str(tourney[4]) + ")\n"
 
 	if list == "":

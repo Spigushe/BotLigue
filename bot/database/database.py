@@ -40,7 +40,7 @@ def create_tournament(conn, tournament):
     :param project:
     :return: project id
 	"""
-	sql = ''' INSERT INTO tournaments(guild_id,tournament_name,tournament_type,tournament_url,tournament_challonge_id,tournament_creator_id,tournament_status)
+	sql = ''' INSERT INTO tournaments(g_id,t_name,t_type,t_url,t_challonge_id,t_creator_id,t_status)
               VALUES(:guild,:name,:type,:url,:id,:creator,:status) '''
 	cur = conn.cursor()
 	cur.execute(sql, tournament)
