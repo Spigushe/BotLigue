@@ -55,4 +55,7 @@ def execute_request(conn, sql, data=None):
 	elif  data is None:
 		cur.execute(sql)
 
+	if "UPDATE" in sql:
+		conn.commit()
+
 	return cur.fetchall()
