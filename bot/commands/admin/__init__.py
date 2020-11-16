@@ -20,7 +20,7 @@ async def admin_message(message,connection):
 
 	# Testing for administrator permission
 	if not await check_admin_privilege(message.author):
-		await message.channel.send(f"{message.author.id}, tournament {tournament['name']} is created ")
+		await message.channel.send(f"{message.author.id}, you do not have `Administrator` permissions on this server")
 		return
 
 	# Commands
