@@ -33,6 +33,9 @@ async def on_ready():
 	# Checking tables existence
 	if connection is not None:
 		database.create_table(connection, structure.sql_create_tournaments_table)
+		query = database.execute_request(connection, "SELECT * FROM tournaments")
+		if query == []:
+			database.create_tournament(connection, structure.sample_tournament)
 	else:
 		print("Error! cannot create the database connection")
 
