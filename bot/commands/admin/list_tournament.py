@@ -20,7 +20,7 @@ async def list_tournament (message,connection):
 		embed.add_field(name="Closed tournaments", value=get_list(connection,0,message.guild.id), inline=False)
 
 	embed.set_footer(
-        text=f"List of tournaments for guild **{message.guild}**"
+        text=f"List of tournaments of {message.guild}"
     )
 	await message.channel.send(embed=embed)
 
@@ -34,6 +34,9 @@ def get_list(connection,status,guild_id):
 	list = f""
 	for tourney in tourneys:
 		list = list + "[" + str(tourney[2]) + "](https://challonge.com/" + str(tourney[4]) + ")\n"
+
+	if list == "":
+		return "No tournaments in this category"
 
 	return list
 
