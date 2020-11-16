@@ -38,6 +38,7 @@ CHALLONGE_TOKEN={your-challonge-token}
 
 ## List of commands
 Commands start with `bot ` at the start of the message
+
 Admin commands are meant to be executed by `Guild.Member` with `Administrator`
 permission
 
@@ -45,8 +46,9 @@ permission
 The above commands are also implemented using parameters
 
 ```bash
-bot admin create -name Tournament Name -type Tournament Type
 bot admin list [-open|-closed]
+bot admin create -name Tournament Name -type Tournament Type
+bot admin destroy -name Tournament Name
 ```
 
 Note:
@@ -58,11 +60,15 @@ Note:
 Hereunder is a list of bot commands
 
 ```bash
+bot admin list
 bot admin create Tournament-Name Tournament-Type
+bot admin destroy Tournament-Name
 ```
 
 Note:
 - Arguments need to not have any `space` and should be written with a `-`
+- `bot admin list` without parameters will display both `-open` and `-closed`
+tournaments
 
 ## Helping developing the Bot
 If you want new feature to be added, please request them in the

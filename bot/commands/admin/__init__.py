@@ -28,6 +28,10 @@ async def admin_message(message,connection):
 		from . import create_tournament
 		await create_tournament.create_tournament(message,connection)
 
+	if content.lower().startswith("destroy "):
+		from . import destroy_tournament
+		await destroy_tournament.destroy_tournament(message,connection)
+
 	if content.lower().startswith("list"):
 		from . import list_tournament
 		await list_tournament.list_tournament(message,connection)
