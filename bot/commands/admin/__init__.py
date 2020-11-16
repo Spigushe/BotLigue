@@ -18,13 +18,10 @@ async def admin_message(message,connection):
 		await message.channel.send(f"Error! Connection to database impossible")
 		return
 
-	"""
-	This needs to be documented and implemented
-	# Testing for "admin" role
-	if not check_admin_privilege(message.author):
-		await message.author.reply(f"You don't seem to have enough privileges")
+	# Testing for administrator permission
+	if not await check_admin_privilege(message.author):
+		await message.channel.send(f"{message.author.id}, tournament {tournament['name']} is created ")
 		return
-	"""
 
 	# Commands
 	if content.lower().startswith("create "):
@@ -36,3 +33,10 @@ async def admin_message(message,connection):
 		await list_tournament.list_tournament(message,connection)
 
 	return
+
+async def check_admin_privilege(member):
+	for role in member.roles:
+		if role.permissions.administrator:
+			return True
+
+	return False
