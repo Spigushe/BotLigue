@@ -62,7 +62,7 @@ async def on_message(message):
 
 		# User Commands
 		else:
-			user.user_message(message)
+			await user.user_message(message,connection)
 
 # Starting the bot
 def main():
