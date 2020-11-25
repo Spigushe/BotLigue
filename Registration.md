@@ -21,6 +21,9 @@ registration a unique experience :
 - *f* `-cz [commander|partner1/parter2]` to register the Command Zone
 - *f* `-archetype archetype_name` to label an archetype
 
+**M** = mandatory
+*f* = facultative
+
 ### 2-step method
 ```
 bot register
