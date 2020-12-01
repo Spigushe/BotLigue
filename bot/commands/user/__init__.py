@@ -21,10 +21,6 @@ async def user_message(message,connection):
 	# Commands
 	if content.lower().startswith("register"):
 		from . import register
-		if "-help" in content:
-			await register.show_help(message)
-			return
-			
 		await register.initiate_registration(message,connection)
 		return
 
